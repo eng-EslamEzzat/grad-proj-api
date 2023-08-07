@@ -5,6 +5,10 @@ from prediction_script_alphabet import predict_alphabet
 import os
 app = FastAPI()
 
+data_path = "data"
+
+if not os.path.exists(data_path):
+    os.makedirs(data_path)
 
 @app.post("/prediction/word")
 async def create_upload_file(file: UploadFile = File(...)):
